@@ -34,6 +34,12 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MainComponent } from './+main/main.component';
+import { CalendarComponent } from './+calendar/calendar.component';
+import { LaundryComponent } from './+laundry/laundry.component';
+import { SignInComponent } from './+sign-in/sign-in.component';
+import { RackTagComponent } from './+rack-tag/rack-tag.component';
+import { LatePlateComponent } from './+late-plate/late-plate.component';
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -63,7 +69,13 @@ export const MaterialModules = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent,
+    CalendarComponent,
+    LaundryComponent,
+    SignInComponent,
+    RackTagComponent,
+    LatePlateComponent,
   ],
   imports: [
     BrowserModule,
