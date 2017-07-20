@@ -40,6 +40,7 @@ import { LaundryComponent } from './+laundry/laundry.component';
 import { SignInComponent } from './+sign-in/sign-in.component';
 import { RackTagComponent } from './+rack-tag/rack-tag.component';
 import { LatePlateComponent } from './+late-plate/late-plate.component';
+import { AuthService } from "./services/auth.service";
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -88,7 +89,9 @@ export const MaterialModules = [
     MaterialModules,
     FlexLayoutModule,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

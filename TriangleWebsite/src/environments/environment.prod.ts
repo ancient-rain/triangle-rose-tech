@@ -8,4 +8,5 @@ export const environment = {
     storageBucket: "triangle-website-d793e.appspot.com",
     messagingSenderId: "315161162598"
   },
+  rosefireRegistryToken: "ce7a6e66-cea5-4f2a-9f20-7e632ebcd9c0",
 };

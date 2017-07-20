@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "triangle-website-d793e",
+  "private_key_id": "73d60cb7d8526d642b7eca7dcbaa6a59d287beca",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC7Gtj0JvET/n5x\nNqECEECuBcUVhfPAJxLw49fEJUTouXMZem9rcc+PIO9f3XEke6Tyhy096qZHjnxG\nzQbXAWIThG/oUosV103KNcv+Aqkp3BTZ2imNBHE7c8wBOdVeS39+2kBBcp/IlBYc\n+a6s69ZOr/8eKxjtM/eNMV1JKdbws1SEEjlqPoTGIt2TjMiJm0wHob3brqE8T49d\nfGXQ4BjdxctpSwaMhlVTFe/8cvrzWh7Uzr8nsCzLZ7/8sbhznhySB8ucdgHuxLx0\nPy93Fg+rAEvqWtovng8eNQIAFNMSYvrr0FikbAE6uy6r2dwN8j1iVtPl8iLfNL7M\nZaaiSUbVAgMBAAECggEAAVQ3/Uf3h2ZT3JcAPsUByJqm4ze/2voMEuTzZ+PB4QtM\nK36oovE8ga5AtQQcJR+xtL1MD3gGtVRoQpJ7PXS3jx7uMo6/iSit10VZjRTUwcTb\n6w43JFbHPR5d8RZJkzFjFvIS6cQYKXMP0yXc3UKRk56BZ+Pzed/YHsseeAIRkkUY\nq6WHuOzn1BGcUpFMxF8qojgkzG4XkYHAxg837kbGeEmWeGFPKFecASLEU1jeFTIw\nBAgVnXCs4x/Y5MjL9K1IqMG2ITnkP6XyzXUmK1LEDtQoRPLwHo6vkd9TwXhlSEJ8\nQgUjZ9jZphDjwQ8NMOqBeHLT2vw37vrXnMOWdzejIQKBgQD/aSHFAu4OTuWNRCdl\ns3I1gazWIcVziqa1gJQ/yQOSQQTtG8qbQ9CcxDCC4LyAtiknW69OKep/rNIQp2PQ\nEMvWGL+1RQxYmbNCj+Re485OcPnmpj6SIuM9cnxg9h7SWj5Q64fclR7Lr3xjyO9P\ndBHz6xjthekX16JD+1q4085UsQKBgQC7iV49tVYY/S9Zj6wlJfBwxvkFG5YjMMue\nTAATnDvOWIdB3FWApg3L8kmJpIsR/T+y4mHnfb//K+3w+rvD1EDnlfMu2TA0uMZv\nfqQpronQTFRvG0zqAvAYCCs473rzb2cyqOYVxx4w6l1p2WYmVDMdxSuVotArF6Ta\nLH+qi5rtZQKBgQDwQiQ7IFtxaDQ1pAPvflMUFCzSragA3U+e8xoBuoS6gqEwrnDz\nh2Jo5YDAzMllxnWGCZAp1fI6MgbVFbEl23bzqgpEaXSIr+TZ22O3A1JhpZLerkmz\nzE+40MZBq6Qoui1ej4EZNclnT2eSskSzl/r/WYr0fIBdJkIE8yBPNycjsQKBgEJM\niQ2lyv9gmtm9yi0D4aHtJeIhY42jVYjr82b7Z8VGVOL6wxuNGPmN+WN40VWVw2w5\nTkVplnPekusLqU/M/PkicOuSCtHItRZ7ngvCUaRbJ8pzy1g7m6fTU3x4ZW4kZ0Zo\noZb3YvwGDuo52jwYrk2LBCKNgayKWlRrQOMJIcdlAoGBAPP4TFJtFrBcbAv3vl0W\nZp90n+v1yI8SV7d90aig8GN8F+PxW8F97cQDXXeQFdEhzgj7AgRDPNFYv0E5CuTK\n2CV0rJ70+4R95trKnz6WX+SZ8g0eOKP6P0DWl9p+0P7ddcE/kpwUml2URIW7UE7p\nHIzNBpQJk1FWdUksgg3o7YMN\n-----END PRIVATE KEY-----\n",
+  "client_email": "rosefire@triangle-website-d793e.iam.gserviceaccount.com",
+  "client_id": "102514554716032784557",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rosefire%40triangle-website-d793e.iam.gserviceaccount.com"
+}
