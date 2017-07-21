@@ -10,12 +10,12 @@
       <a md-list-item (click)="sidenav.toggle()" [routerLink]="['/lateplate']">Late Plate Board</a>
       <a md-list-item (click)="sidenav.toggle()" [routerLink]="['/racktag']">Rack Tag Board</a>
       <hr>
-      <a md-list-item (click)="sidenav.toggle();signOut();">Sign out</a>
+      <a md-list-item (click)="sidenav.toggle();authService.signOut();">Sign out</a>
 
     </md-nav-list>
   </md-sidenav>
   <md-toolbar color="primary" flxLayout="row" fxLayoutAlign="space-between center">
-    <button md-icon-button (click)="sidenav.toggle()">
+    <button md-icon-button *ngIf="authService.isSignedInStream | async" (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
     </button> 
     Triangle Rose-Tech
