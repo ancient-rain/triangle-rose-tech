@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../services/auth.service";
 import { environment } from "../../environments/environment";
 import { AngularFireAuth } from "angularfire2/auth";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-sign-in',
@@ -12,7 +13,8 @@ import { AngularFireAuth } from "angularfire2/auth";
 export class SignInComponent implements OnInit {
 
   constructor(public authService: AuthService,
-  public afAuth: AngularFireAuth) { }
+  public afAuth: AngularFireAuth,
+  private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,7 +26,7 @@ export class SignInComponent implements OnInit {
         console.error(error);
         return;
       }
-      console.log('Rosefire is done. User:', rfUser);
+
       this.afAuth.auth.signInWithCustomToken(rfUser.token);
     });
   }
