@@ -18,7 +18,7 @@
     <button md-icon-button *ngIf="authService.isSignedInStream | async" (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
     </button> 
-    Triangle Rose-Tech
+    <h2 *ngIf="!(authService.isSignedInStream | async)">Triangle Rose-Tech</h2>
   </md-toolbar>
   <router-outlet></router-outlet>
 </md-sidenav-container>
