@@ -12,6 +12,7 @@ export class AuthService {
   showLoginError: boolean;
   _currentUserUid: string;
   _currentUserPhoto: string;
+  _currentUserRack: string;
   _currentUserEC: boolean;
 
   constructor(private afAuth: AngularFireAuth,
@@ -24,11 +25,13 @@ export class AuthService {
               this._currentUserUid = user.uid;
               this._currentUserPhoto = snapshot.child('photo').val();
               this._currentUserEC = snapshot.child('ec').val();
+              this._currentUserRack = snapshot.child('rack').val();
               this.router.navigate(['']);
               this.showLoginError = false;
             } else {
               this._currentUserUid = '';
               this._currentUserPhoto = '';
+              this._currentUserRack = '';
               this._currentUserEC = false;
               this.showLoginError = true;
               this.afAuth.auth.signOut();
@@ -43,6 +46,22 @@ export class AuthService {
       .map<firebase.User, boolean>((user: firebase.User) => {
         return user != null;
       });
+  }
+
+  get userUid(): string {
+    return this._currentUserUid;
+  }
+
+  get photoUrl(): string {
+    return this._currentUserPhoto;
+  }
+
+  get rack(): string {
+    return this._currentUserRack;
+  }
+
+  get ecMember(): boolean {
+    return this._currentUserEC;
   }
 
   signIn(): void {
