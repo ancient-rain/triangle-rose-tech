@@ -11,6 +11,7 @@ export class AuthService {
   isSignedInStream: Observable<boolean>;
   showLoginError: boolean;
   _currentUserUid: string;
+  _currentUserInitials: string;
   _currentUserPhoto: string;
   _currentUserRack: string;
   _currentUserRole: string;
@@ -23,22 +24,17 @@ export class AuthService {
           (snapshot: firebase.database.DataSnapshot) => {
             if (snapshot.val()) {
               this._currentUserUid = user.uid;
+              this._currentUserInitials = snapshot.child('initials').val();
               this._currentUserPhoto = snapshot.child('photo').val();
               this._currentUserRole = snapshot.child('role').val();
               this._currentUserRack = snapshot.child('rack').val();
               this.router.navigate(['']);
               this.showLoginError = false;
             } else {
-              this._currentUserUid = '';
-              this._currentUserPhoto = '';
-              this._currentUserRack = '';
-              this._currentUserRole = '';
               this.showLoginError = true;
               this.afAuth.auth.signOut();
             }
           });
-      } else {
-        this._currentUserUid = '';
       }
     });
 
@@ -50,6 +46,10 @@ export class AuthService {
 
   get userUid(): string {
     return this._currentUserUid;
+  }
+
+  get initials(): string {
+    return this._currentUserInitials;
   }
 
   get photoUrl(): string {
