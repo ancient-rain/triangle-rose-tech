@@ -6,4 +6,16 @@ img {
     border-radius: 50%;
     object-fit: cover;
     display: block;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+md-card {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+md-icon {
+    font-size: 30px;
+    margin-right: 30px;
 }

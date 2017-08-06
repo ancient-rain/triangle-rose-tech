@@ -13,7 +13,7 @@ export class AuthService {
   _currentUserUid: string;
   _currentUserPhoto: string;
   _currentUserRack: string;
-  _currentUserEC: boolean;
+  _currentUserRole: string;
 
   constructor(private afAuth: AngularFireAuth,
     private router: Router) {
@@ -24,7 +24,7 @@ export class AuthService {
             if (snapshot.val()) {
               this._currentUserUid = user.uid;
               this._currentUserPhoto = snapshot.child('photo').val();
-              this._currentUserEC = snapshot.child('ec').val();
+              this._currentUserRole = snapshot.child('role').val();
               this._currentUserRack = snapshot.child('rack').val();
               this.router.navigate(['']);
               this.showLoginError = false;
@@ -32,7 +32,7 @@ export class AuthService {
               this._currentUserUid = '';
               this._currentUserPhoto = '';
               this._currentUserRack = '';
-              this._currentUserEC = false;
+              this._currentUserRole = '';
               this.showLoginError = true;
               this.afAuth.auth.signOut();
             }
@@ -60,8 +60,8 @@ export class AuthService {
     return this._currentUserRack;
   }
 
-  get ecMember(): boolean {
-    return this._currentUserEC;
+  get role(): string {
+    return this._currentUserRole;
   }
 
   signIn(): void {
@@ -79,5 +79,13 @@ export class AuthService {
   signOut(): void {
     this.afAuth.auth.signOut();
     this.router.navigate(['/signin']);
+  }
+
+  changeImage(): void {
+    console.log('TODO: add dialog component to change image');
+  }
+
+  changeRack(): void {
+    console.log('TODO: add dialog component to change rack');
   }
 }

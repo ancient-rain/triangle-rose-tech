@@ -1,3 +1,15 @@
 <div class="container" fxLayout="column" fxLayoutAlign="center center">
-  <img alt="Photo" [src]="authService.photoUrl" md-card-image>
+  <img (click)="authService.changeImage()" alt="Photo" [src]="authService.photoUrl" md-card-image>
+  <md-card>
+    <md-card-content fxLayout="row" style="font-size:24px">
+      <md-icon>face</md-icon>
+      {{ authService.role }}
+    </md-card-content>
+  </md-card>
+  <md-card (click)="authService.changeRack()" style="cursor:pointer;">
+    <md-card-content fxLayout="row" style="font-size:24px">
+      <md-icon>local_hotel</md-icon>
+      <span>{{ authService.rack }}</span>
+    </md-card-content>
+  </md-card>
 </div>
