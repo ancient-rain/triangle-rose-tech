@@ -9,8 +9,10 @@ import { Router } from "@angular/router";
 @Injectable()
 export class AuthService {
   isSignedInStream: Observable<boolean>;
-  _currentUserUid: string;
   showLoginError: boolean;
+  _currentUserUid: string;
+  _currentUserPhoto: string;
+  _currentUserEC: boolean;
 
   constructor(private afAuth: AngularFireAuth,
     private router: Router) {
@@ -19,20 +21,20 @@ export class AuthService {
         firebase.database().ref(`/members/${user.uid}`).on('value',
           (snapshot: firebase.database.DataSnapshot) => {
             if (snapshot.val()) {
-              console.log('Triangle member');
-              console.log('signed in as', user);
               this._currentUserUid = user.uid;
+              this._currentUserPhoto = snapshot.child('photo').val();
+              this._currentUserEC = snapshot.child('ec').val();
               this.router.navigate(['']);
               this.showLoginError = false;
             } else {
-              console.log('Non Triangle Member');
               this._currentUserUid = '';
+              this._currentUserPhoto = '';
+              this._currentUserEC = false;
               this.showLoginError = true;
               this.afAuth.auth.signOut();
             }
           });
       } else {
-        console.log('not signed in');
         this._currentUserUid = '';
       }
     });
