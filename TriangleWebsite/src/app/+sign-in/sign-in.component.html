@@ -1,4 +1,4 @@
-<div class="container" fxLayoutAlign="center center">
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
   <md-card>
     <md-card-title fxLayout="column" fxLayoutAlign="none center">
       <h2>Welcome</h2>
@@ -6,7 +6,17 @@
     <md-card-content fxLayout="column" fxLayoutAlign="none center">
       Only active members of the Triangle Rose-Tech Chapter will have access to this site.
       <button md-raised-button (click)="authService.signIn()">Rose Hulman Sign In</button>
-      <p>If you are a member and have issues logging in, talk to current admin.</p>
+    </md-card-content>
+  </md-card>
+  <br>
+  <br>
+  <md-card *ngIf="authService.showLoginError">
+    <md-card-title fxLayout="column" fxLayoutAlign="none center">
+      <h2>Login Error</h2>
+    </md-card-title>
+    <md-card-content fxLayout="column" fxLayoutAlign="none center">
+      <p>You are not a member of the Triangle Rose-Tech chapter.</p>
+      <p>If you are a member and have issues logging in, talk to the current admin.</p>
     </md-card-content>
   </md-card>
 </div>
