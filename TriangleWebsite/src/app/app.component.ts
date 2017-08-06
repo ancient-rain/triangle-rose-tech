@@ -22,29 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
     public authService: AuthService) {
   }
 
-  ngOnInit(): void {
-  //   var validUser = false;
-
-  //   this.authStateSubscription = this.afAuth.authState.subscribe((user: firebase.User) => {
-  //     if (user) {
-  //       // verify Triangle Member
-  //       firebase.database().ref('/members/' + user.uid).once('value')
-  //         .then(function (snapshot) {
-  //           validUser = snapshot.exists();
-  //         });
-  //     } else {
-  //       validUser = false;
-  //     }
-
-  //     // need a way to do this in the script above
-  //     // for now this works fine
-  //     setTimeout(() => {
-  //       if (validUser) {
-  //         this.router.navigate(['']);
-  //       }
-  //     }, 3000)
-  // });
-}
+  ngOnInit(): void { }
 
 ngOnDestroy(): void {
   this.authStateSubscription.unsubscribe();
