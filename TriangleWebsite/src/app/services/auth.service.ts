@@ -57,6 +57,9 @@ export class AuthService {
   }
 
   get rack(): string {
+    if (this._currentUserRack === '') {
+      return 'N/A';
+    }
     return this._currentUserRack;
   }
 
