@@ -10,18 +10,27 @@ import { Router } from "@angular/router";
 export class AuthService {
   isSignedInStream: Observable<boolean>;
   _currentUserUid: string;
+  showLoginError: boolean;
 
   constructor(private afAuth: AngularFireAuth,
     private router: Router) {
     this.afAuth.authState.subscribe((user: firebase.User) => {
       if (user) {
-        console.log('signed in as', user);
-        this._currentUserUid = user.uid;
-        this.router.navigate(['']);
-        // console.log(firebase.database().ref(`/members/`).once('value')
-        //   .then(function(snapshot) {
-        //     return snapshot.exists();
-        //   }));
+        firebase.database().ref(`/members/${user.uid}`).on('value',
+          (snapshot: firebase.database.DataSnapshot) => {
+            if (snapshot.val()) {
+              console.log('Triangle member');
+              console.log('signed in as', user);
+              this._currentUserUid = user.uid;
+              this.router.navigate(['']);
+              this.showLoginError = false;
+            } else {
+              console.log('Non Triangle Member');
+              this._currentUserUid = '';
+              this.showLoginError = true;
+              this.afAuth.auth.signOut();
+            }
+          });
       } else {
         console.log('not signed in');
         this._currentUserUid = '';
@@ -29,13 +38,9 @@ export class AuthService {
     });
 
     this.isSignedInStream = this.afAuth.authState
-      .map<firebase.User, boolean>((user: firebase.User) => { 
-          // return firebase.database().ref('/members/' + this._currentUserUid).once('value')
-          //   .then(function(snapshot) {
-          //     return snapshot.exists();
-          //   }
-          return user != null;
-       });
+      .map<firebase.User, boolean>((user: firebase.User) => {
+        return user != null;
+      });
   }
 
   signIn(): void {
