@@ -56,7 +56,7 @@ export class LatePlateComponent implements OnInit {
     firebase.database().ref(ref).child('photoUrl').set(photoUrl);
     this.displayAdd = false;
     this.snackBar.open('Late Plate added', 'Dismiss', {
-      duration: 50000,
+      duration: 5000,
     });
   }
 
