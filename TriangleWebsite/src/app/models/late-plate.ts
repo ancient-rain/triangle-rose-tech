@@ -1,13 +1,10 @@
 import { FirebaseFileSnapshot } from "./firebase-file-snapshot";
 
-export class LatePlate extends FirebaseFileSnapshot {
-    public key: string;
+export class LatePlate {
     public photoUrl: string;
     public initials: string;
 
-    constructor(obj?:any){
-        super(obj);
-        this.key = obj && obj.key || '';
+    constructor(obj?: any) {
         this.photoUrl = obj && obj.photoUrl || '';
         this.initials = obj && obj.initials || '';
     }

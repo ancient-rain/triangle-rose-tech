@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../services/auth.service";
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
-import { LatePlate } from "../models/late-plate";
 import * as firebase from 'firebase/app';
+import { LatePlate } from "../models/late-plate";
+import { MdSnackBar } from "@angular/material";
 
 @Component({
   selector: 'app-late-plate',
@@ -16,16 +17,15 @@ export class LatePlateComponent implements OnInit {
   private displayAdd: boolean;
 
   constructor(public authService: AuthService,
-    public db: AngularFireDatabase) {
+    public db: AngularFireDatabase,
+    private snackBar: MdSnackBar) {
     this._latePlatesStream = this.db.list(this.latePlatesPath);
     firebase.database().ref(this.latePlatesPath).on('value',
       (snapshot: firebase.database.DataSnapshot) => {
         if (snapshot.child(this.authService.userUid).val()) {
           this.displayAdd = false;
-          console.log('display remove');
         } else {
           this.displayAdd = true;
-          console.log('display add');
         }
       });
   }
@@ -45,5 +45,28 @@ export class LatePlateComponent implements OnInit {
     } else {
       return 6;
     }
+  }
+
+  add(): void {
+    const uid: string = this.authService.userUid;
+    const initials: string = this.authService.initials;
+    const photoUrl: string = this.authService.photoUrl;
+    const ref: string = this.latePlatesPath + '/' + uid;
+    firebase.database().ref(ref).child('initials').set(initials);
+    firebase.database().ref(ref).child('photoUrl').set(photoUrl);
+    this.displayAdd = false;
+    this.snackBar.open('Late Plate added', 'Dismiss', {
+      duration: 50000,
+    });
+  }
+
+  remove(): void {
+    const uid: string = this.authService.userUid;
+    const ref: string = this.latePlatesPath + '/' + uid;
+    firebase.database().ref(ref).remove();
+    this.displayAdd = true;
+    this.snackBar.open('Late Plate removed', 'Dismiss', {
+      duration: 5000,
+    });
   }
 }
