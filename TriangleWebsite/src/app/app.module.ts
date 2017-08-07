@@ -43,6 +43,7 @@ import { LatePlateComponent } from './+late-plate/late-plate.component';
 import { AuthService } from "./services/auth.service";
 import { AuthGuard } from "./services/auth.guard";
 import { CalendarEventComponent } from './calendar-event/calendar-event.component';
+import { LatePlateIconComponent } from './services/late-plate-icon/late-plate-icon.component';
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -80,6 +81,7 @@ export const MaterialModules = [
     RackTagComponent,
     LatePlateComponent,
     CalendarEventComponent,
+    LatePlateIconComponent,
   ],
   imports: [
     BrowserModule,

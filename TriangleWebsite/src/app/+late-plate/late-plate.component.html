@@ -1,3 +1,13 @@
-<p>
-  late-plate works!
-</p>
+<div class="container">
+  <md-grid-list [cols]="numColumns" gutterSize="15px" rowHeight="250px">
+    <md-grid-tile *ngFor="let latePlate of _latePlatesStream | async">
+      <app-late-plate-icon [latePlate]=latePlate></app-late-plate-icon>
+    </md-grid-tile>
+  </md-grid-list>
+</div>
+<a md-fab *ngIf="displayAdd" (click)="add()">
+  <md-icon>add</md-icon>
+</a>
+<a md-fab *ngIf="!displayAdd" (click)="remove()">
+  <md-icon>remove</md-icon>
+</a>
