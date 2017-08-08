@@ -18,8 +18,8 @@
 </md-card-content>
 
 <md-card-actions fxLayoutAlign="end center">
-  <button *ngIf=" this.authService._currentUserRole != Member" md-button (click)="edit()" type="button" style="background-color: #2495b5">Edit</button>
-  <button *ngIf=" this.authService._currentUserRole != Member" md-button (click)="delete()" type="button" style="background-color: #b52439">Delete</button>
+  <button *ngIf=" this.authService._currentUserRole != 'Member'" md-button (click)="edit()" type="button" style="background-color: #2495b5">Edit</button>
+  <button *ngIf=" this.authService._currentUserRole != 'Member'" md-button (click)="delete()" type="button" style="background-color: #b52439">Delete</button>
 </md-card-actions>
 </div>
 </md-card>

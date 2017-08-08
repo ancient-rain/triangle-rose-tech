@@ -4,6 +4,6 @@
     </app-calendar-event>
   </md-grid-tile>
 </md-grid-list>
- <a *ngIf=" this.authService._currentUserRole != Member" md-fab (click)="showEventDialog()">
+ <a *ngIf=" this.authService._currentUserRole != 'Member'" md-fab (click)="showEventDialog()">
   <md-icon>add</md-icon>
 </a> 
