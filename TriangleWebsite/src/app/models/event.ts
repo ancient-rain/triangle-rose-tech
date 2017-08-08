@@ -1,14 +1,14 @@
 import { FirebaseFileSnapshot } from "./firebase-file-snapshot";
 
-export class Event extends FirebaseFileSnapshot {
+export class MyEvent extends FirebaseFileSnapshot {
     public authorKey?: string;
     public date: string;
-    public caption: string;
+    public name: string;
 
     constructor(obj?:any){
         super(obj);
         this.authorKey = obj && obj.authorKey || "";
         this.date = obj && obj.date || "";
-        this.caption = obj && obj.caption || "";
+        this.name = obj && obj.name || "";
     }
 }

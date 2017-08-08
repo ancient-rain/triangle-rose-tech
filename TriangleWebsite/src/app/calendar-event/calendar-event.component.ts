@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import * as firebase from 'firebase';
+import { Router } from "@angular/router";
+import { MdDialogConfig, MdSnackBar, MdDialog } from "@angular/material";
+import { CreateEventComponent } from "../create-event/create-event.component";
+import { MyEvent } from "../models/event";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-calendar-event',
@@ -7,9 +13,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarEventComponent implements OnInit {
 
-  constructor() { }
+  @Input() event: MyEvent; 
+  isExpanded= false;
+
+  constructor(private snackBar : MdSnackBar, private dialog: MdDialog,  private router: Router, public authService: AuthService) { }
 
   ngOnInit() {
   }
 
+  edit(): void{
+    console.log("Edit");
+    const dialogConfig = new MdDialogConfig();
+    dialogConfig.data= {
+      firebasePath: '/events',
+      post: this.event,
+    }
+    this.dialog.open(CreateEventComponent, dialogConfig);
+  }
+
+  delete(): void{
+    console.log("Delete");
+    firebase.database().ref("events").child(this.event.$key).remove();
+    this.snackBar.open("Event Removed from Calendar", "Dismiss",{
+      duration: 3000,
+    });
+  }
 }

@@ -1,6 +1,9 @@
-<!-- <md-grid-list [cols]="numColumns">
+<md-grid-list [cols]="numColumns">
   <md-grid-tile *ngFor="let event of eventStream | async">
-    <app-calendar-event fxFlex [event]=event [firebasePath]="firebasePath">
+    <app-calendar-event fxFlex [event]=event>
     </app-calendar-event>
   </md-grid-tile>
-</md-grid-list> -->
+</md-grid-list>
+ <a *ngIf=" this.authService._currentUserRole == Member" md-fab (click)="showEventDialog()">
+  <md-icon>add</md-icon>
+</a> 
