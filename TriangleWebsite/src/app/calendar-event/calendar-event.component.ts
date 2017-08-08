@@ -25,8 +25,7 @@ export class CalendarEventComponent implements OnInit {
     console.log("Edit");
     const dialogConfig = new MdDialogConfig();
     dialogConfig.data= {
-      firebasePath: '/events',
-      post: this.event,
+      event: this.event,
     }
     this.dialog.open(CreateEventComponent, dialogConfig);
   }

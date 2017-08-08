@@ -7,7 +7,6 @@ import { AngularFireDatabase } from "angularfire2/database";
 
 interface PostDialogData{
   event?: MyEvent;
-  firebasePath: string;
 }
 
 @Component({
@@ -40,7 +39,7 @@ export class CreateEventComponent implements OnInit {
         name: this.formEvent.name,
         authorKey: this.authService.userUid,
       });
-            const firebaseRef = firebase.database().ref("events");
+     const firebaseRef = firebase.database().ref("events");
       if(this.dialogData.event){
           firebaseRef.child(this.dialogData.event.$key).set(post); 
       }
