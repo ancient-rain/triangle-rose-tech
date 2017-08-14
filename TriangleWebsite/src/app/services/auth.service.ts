@@ -74,7 +74,9 @@ export class AuthService {
         return;
       }
 
-      this.afAuth.auth.signInWithCustomToken(rfUser.token);
+      this.afAuth.auth.signInWithCustomToken(rfUser.token).then((authState) => {
+        this.router.navigate(['']);
+      });
     });
   }
 

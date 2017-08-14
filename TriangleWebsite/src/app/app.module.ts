@@ -46,6 +46,7 @@ import { CalendarEventComponent } from './calendar-event/calendar-event.componen
 import { LatePlateIconComponent } from './services/late-plate-icon/late-plate-icon.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { RackTagCardComponent } from "./services/rack-tag-card/rack-tag-card.component";
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -86,6 +87,7 @@ export const MaterialModules = [
     LatePlateIconComponent,
     CreateEventComponent,
     ReversePipe,
+    RackTagCardComponent,
   ],
     entryComponents: [
     CreateEventComponent,
