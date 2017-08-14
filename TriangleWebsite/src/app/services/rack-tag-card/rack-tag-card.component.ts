@@ -7,7 +7,8 @@ import { LatePlate } from "../../models/late-plate";
   styleUrls: ['./rack-tag-card.component.scss']
 })
 export class RackTagCardComponent implements OnInit {
-
+  @Input() time: string;
+  
   constructor() { }
 
   ngOnInit() {

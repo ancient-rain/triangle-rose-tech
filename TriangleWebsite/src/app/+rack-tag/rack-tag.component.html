@@ -1,9 +1,5 @@
 <div class="container">
-  <md-grid-list [cols]=1 gutterSize="20px">
-    <md-grid-tile>
-
-      <app-rack-tag-card></app-rack-tag-card>
-
-    </md-grid-tile>
-  </md-grid-list>
+  <md-card *ngFor="let time of _timesStream">
+    <app-rack-tag-card [time]=time></app-rack-tag-card>
+  </md-card>
 </div>
