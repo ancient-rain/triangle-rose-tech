@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-rack-tag',
   templateUrl: './rack-tag.component.html',
-  styleUrls: ['./rack-tag.component.scss']
+  styleUrls: ['../shared/common.scss', './rack-tag.component.scss']
 })
 export class RackTagComponent implements OnInit {
 

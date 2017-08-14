@@ -28,7 +28,6 @@ export class AuthService {
               this._currentUserPhoto = snapshot.child('photo').val();
               this._currentUserRole = snapshot.child('role').val();
               this._currentUserRack = snapshot.child('rack').val();
-              this.router.navigate(['']);
               this.showLoginError = false;
             } else {
               this.showLoginError = true;
