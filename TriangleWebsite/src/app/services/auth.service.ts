@@ -15,6 +15,7 @@ export class AuthService {
   _currentUserPhoto: string;
   _currentUserRack: string;
   _currentUserRole: string;
+  _currentRackTime: string;
 
   constructor(private afAuth: AngularFireAuth,
     private router: Router) {
@@ -28,6 +29,7 @@ export class AuthService {
               this._currentUserPhoto = snapshot.child('photo').val();
               this._currentUserRole = snapshot.child('role').val();
               this._currentUserRack = snapshot.child('rack').val();
+              this._currentRackTime = snapshot.child('rackTime').val();
               this.showLoginError = false;
             } else {
               this.showLoginError = true;
@@ -64,6 +66,10 @@ export class AuthService {
 
   get role(): string {
     return this._currentUserRole;
+  }
+
+  get rackTime(): string {
+    return this._currentRackTime;
   }
 
   signIn(): void {

@@ -25,6 +25,8 @@ export class LatePlateComponent implements OnInit {
 
     if (this.currentTime > this.afternoon) {
       firebase.database().ref(this.latePlatesPath).remove();
+      this.afternoon = new Date();
+      this.afternoon.setHours(44, 0, 0, 0);
     }
     
     this._latePlatesStream = this.db.list(this.latePlatesPath);
@@ -79,7 +81,9 @@ export class LatePlateComponent implements OnInit {
   remove(): void {
     const uid: string = this.authService.userUid;
     const ref: string = this.latePlatesPath + '/' + uid;
+    
     firebase.database().ref(ref).remove();
+
     this.displayAdd = true;
     this.snackBar.open('Late Plate removed', 'Dismiss', {
       duration: 5000,
