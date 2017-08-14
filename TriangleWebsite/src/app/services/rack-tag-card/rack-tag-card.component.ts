@@ -4,6 +4,7 @@ import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/databa
 import { AuthService } from "../auth.service";
 import { MdSnackBar } from "@angular/material";
 import * as firebase from 'firebase/app';
+import { RackTime } from "../../models/rack-time";
 
 @Component({
   selector: 'app-rack-tag-card',
@@ -11,7 +12,7 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./rack-tag-card.component.scss']
 })
 export class RackTagCardComponent implements OnInit {
-  @Input() time: string;
+  @Input() time: RackTime;
 
   readonly rackPath = `rack/${this.time}`;
 
@@ -20,6 +21,7 @@ export class RackTagCardComponent implements OnInit {
   private currentTime = new Date();
   private displayAdd: boolean;
   private canAdd: boolean;
+  private numRackTags: number;
 
   constructor(public authService: AuthService,
     public db: AngularFireDatabase,
@@ -31,21 +33,24 @@ export class RackTagCardComponent implements OnInit {
       // firebase.database().ref(this.rackPath).remove();
       // this.morning = new Date();
       // this.morning.setHours(32, 0, 0, 0);
+      // this.numRackTags = 0;
     }
 
     this._rackStream = this.db.list(this.rackPath);
 
     firebase.database().ref(this.rackPath).on('value',
       (snapshot: firebase.database.DataSnapshot) => {
+        this.numRackTags = snapshot.numChildren();
+
         if (this.authService.rack !== '') {
           this.displayAdd = true;
           if (this.authService.rackTime === '') {
             this.canAdd = true;
             console.log('display add for all times');
           } else {            
-            if (this.authService.rackTime === this.time) {
+            if (this.authService.rackTime === this.time.time) {
               this.displayAdd = true;
-              console.log('display add for', this.time);
+              console.log('display add for', this.time.time);
             } else {
               this.displayAdd = false;
             }
@@ -75,6 +80,7 @@ export class RackTagCardComponent implements OnInit {
     firebase.database().ref(`members/${uid}`).child('rackTime').set(this.time);
 
     this.canAdd = false;
+    this.numRackTags++;
     this.snackbar.open('Added rack tag to ' + this.time, 'Dismiss', {
       duration: 5000,
     });
@@ -87,6 +93,7 @@ export class RackTagCardComponent implements OnInit {
     firebase.database().ref(ref).remove();
 
     this.canAdd = true;
+    this.numRackTags--;
     this.snackbar.open('Removed rack tag from ' + this.time, 'Dismiss', {
       duration: 5000,
     });

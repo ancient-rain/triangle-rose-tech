@@ -1,0 +1,17 @@
+<h1 md-dialog-title>Add your rack tag to a time</h1>
+<form #rackForm="ngForm" fxLayout="column" (ngSubmit)="onSubmit()">
+  <md-dialog-content fxFlex="100" fxLayout="column" fxLayoutAlign="none center">
+    <md-radio-group [(ngModel)]="rackTime" [ngModelOptions]="{standalone: true}">
+      <!-- <md-radio-button *ngFor="let t of times" [value]="time">
+        {{ t }}
+      </md-radio-button> -->
+      <md-radio-button>
+        fuck you firebase
+      </md-radio-button>
+    </md-radio-group>
+  </md-dialog-content>
+  <md-dialog-actions fxLayoutAlign="end center">
+    <button md-button type="button" md-dialog-close>Cancel</button>
+    <button md-button [disabled]="!rackForm.form.valid" type="submit">Save</button>
+  </md-dialog-actions>
+</form>

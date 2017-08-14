@@ -32,7 +32,7 @@ import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MainComponent } from './+main/main.component';
 import { CalendarComponent } from './+calendar/calendar.component';
@@ -47,6 +47,7 @@ import { LatePlateIconComponent } from './services/late-plate-icon/late-plate-ic
 import { CreateEventComponent } from './create-event/create-event.component';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { RackTagCardComponent } from "./services/rack-tag-card/rack-tag-card.component";
+import { RackTagDialogComponent } from './rack-tag-dialog/rack-tag-dialog.component';
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -88,9 +89,11 @@ export const MaterialModules = [
     CreateEventComponent,
     ReversePipe,
     RackTagCardComponent,
+    RackTagDialogComponent,
   ],
     entryComponents: [
     CreateEventComponent,
+    RackTagDialogComponent,
   ],
   imports: [
     BrowserModule,
