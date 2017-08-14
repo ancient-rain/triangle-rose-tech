@@ -1,6 +1,6 @@
 <div class="container">
   <md-grid-list [cols]="numColumns" gutterSize="15px" rowHeight="250px">
-    <md-grid-tile *ngFor="let latePlate of _latePlatesStream | async">
+    <md-grid-tile *ngFor="let latePlate of _latePlatesStream | async | reverse">
       <app-late-plate-icon [latePlate]=latePlate></app-late-plate-icon>
     </md-grid-tile>
   </md-grid-list>

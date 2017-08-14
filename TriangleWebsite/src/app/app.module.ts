@@ -45,6 +45,7 @@ import { AuthGuard } from "./services/auth.guard";
 import { CalendarEventComponent } from './calendar-event/calendar-event.component';
 import { LatePlateIconComponent } from './services/late-plate-icon/late-plate-icon.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { ReversePipe } from './pipes/reverse.pipe';
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -84,6 +85,7 @@ export const MaterialModules = [
     CalendarEventComponent,
     LatePlateIconComponent,
     CreateEventComponent,
+    ReversePipe,
   ],
     entryComponents: [
     CreateEventComponent,
