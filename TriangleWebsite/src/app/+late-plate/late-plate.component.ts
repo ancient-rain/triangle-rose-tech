@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../services/auth.service";
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
@@ -15,15 +16,28 @@ export class LatePlateComponent implements OnInit {
 
   private _latePlatesStream: FirebaseListObservable<LatePlate[]>;
   private displayAdd: boolean;
+  private afternoon = new Date();
+  private currentTime = new Date();
 
   constructor(public authService: AuthService,
     public db: AngularFireDatabase,
     private snackBar: MdSnackBar) {
+    this.afternoon.setHours(20, 0, 0, 0);
+
+    if (this.currentTime == this.afternoon) {
+      firebase.database().ref(this.latePlatesPath).remove();
+    }
+    
     this._latePlatesStream = this.db.list(this.latePlatesPath);
+    
     firebase.database().ref(this.latePlatesPath).on('value',
       (snapshot: firebase.database.DataSnapshot) => {
-        if (snapshot.child(this.authService.userUid).val()) {
-          this.displayAdd = false;
+        if (snapshot.exists()) {
+          if (snapshot.child(this.authService.userUid).val()) {
+            this.displayAdd = false;
+          } else {
+            this.displayAdd = true;
+          }
         } else {
           this.displayAdd = true;
         }
@@ -51,9 +65,12 @@ export class LatePlateComponent implements OnInit {
     const uid: string = this.authService.userUid;
     const initials: string = this.authService.initials;
     const photoUrl: string = this.authService.photoUrl;
+    const timestamp = firebase.database.ServerValue.TIMESTAMP;
     const ref: string = this.latePlatesPath + '/' + uid;
+
     firebase.database().ref(ref).child('initials').set(initials);
     firebase.database().ref(ref).child('photoUrl').set(photoUrl);
+
     this.displayAdd = false;
     this.snackBar.open('Late Plate added', 'Dismiss', {
       duration: 5000,
