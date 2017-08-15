@@ -1,11 +1,13 @@
 <div class="container" fxLayout="column" fxLayoutAlign="center center">
   <md-card>
-    <md-card-title fxLayout="column" fxLayoutAlign="none center">
+    <md-card-title fxLayout="column" fxLayoutAlign="none none">
       <h2>Welcome</h2>
     </md-card-title>
     <md-card-content fxLayout="column" fxLayoutAlign="none center">
-      Only active members of the Triangle Rose-Tech Chapter will have access to this site.
+      <img src='/assets/logo.png'><img>
       <button md-raised-button (click)="authService.signIn()">Rose Hulman Sign In</button>
+      <br>  Only active members of the Triangle Rose-Tech Chapter will have access to this site.
+      
     </md-card-content>
   </md-card>
   <br>

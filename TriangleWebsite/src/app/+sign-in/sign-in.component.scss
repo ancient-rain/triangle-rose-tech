@@ -7,21 +7,22 @@ $horz-padding: 30px;
 md-card {
     padding: 0;
 
+
     md-card-title {
         padding: 15px $horz-padding;
-        background-color: #aaa;
+        background-color: #800000;
 
         h2 {
             margin: 0;
             font-weight: normal;
-            color: #444;
+            color: #faebd7;
         }
     }
 
     md-card-content {
         padding: $horz-padding;
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 18px;
+        color: #faebd7;
+        font-size: 14px;
 
         button {
             margin-top: 30px;
