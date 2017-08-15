@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { RackTag } from "../../models/rack-tag";
+import { AuthService } from "../auth.service";
 
 @Component({
   selector: 'app-rack',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rack.component.scss']
 })
 export class RackComponent implements OnInit {
+  @Input() rack: RackTag; 
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }

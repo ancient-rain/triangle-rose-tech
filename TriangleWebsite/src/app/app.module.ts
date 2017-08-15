@@ -42,11 +42,12 @@ import { RackTagComponent } from './+rack-tag/rack-tag.component';
 import { LatePlateComponent } from './+late-plate/late-plate.component';
 import { AuthService } from "./services/auth.service";
 import { AuthGuard } from "./services/auth.guard";
-import { CalendarEventComponent } from './calendar-event/calendar-event.component';
+import { CalendarEventComponent } from './services/calendar-event/calendar-event.component';
 import { LatePlateIconComponent } from './services/late-plate-icon/late-plate-icon.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { ReversePipe } from './pipes/reverse.pipe';
-import { RackComponent } from './rack/rack.component';
+import { RackComponent } from './services/rack/rack.component';
+import { RackRoomInfoComponent } from './rack-room-info/rack-room-info.component';
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -88,9 +89,11 @@ export const MaterialModules = [
     CreateEventComponent,
     ReversePipe,
     RackComponent,
+    RackRoomInfoComponent,
   ],
     entryComponents: [
     CreateEventComponent,
+    RackRoomInfoComponent,
   ],
   imports: [
     BrowserModule,

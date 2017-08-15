@@ -2,12 +2,14 @@
     padding: 20px;
 }
 
-md-switch{
+md-slide-toggle{
     position: fixed;
     right: 20px;
     bottom: 20px;
 }
 h1{
+    position: relative;
+    left: 20px;
     font-family: 'Roboto', sans-serif;
     font-style: italic;
     color: #eae5b8;

@@ -4,9 +4,11 @@ import { MdDialog, MdDialogConfig } from '@angular/material';
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
 import { AngularFireAuth } from "angularfire2/auth";
 import { Router } from "@angular/router";
-import { CreateEventComponent } from "../create-event/create-event.component";
 import { AuthService } from "../services/auth.service";
 import { RackTag } from "../models/rack-tag";
+
+import * as firebase from 'firebase/app';
+import { RackRoomInfoComponent } from "../rack-room-info/rack-room-info.component";
 
 @Component({
   selector: 'app-rack-tag',
@@ -14,10 +16,11 @@ import { RackTag } from "../models/rack-tag";
   styleUrls: ['./rack-tag.component.scss']
 })
 export class RackTagComponent implements OnInit {
-rackStream: FirebaseListObservable<RackTag[]>;
-isUpstairs: boolean;
-
+  
+  rackStream: FirebaseListObservable<RackTag[]>;
+  isUpstairs: boolean;
   readonly rackPath = 'rack-tags';
+
   constructor(public authService: AuthService, private db: AngularFireDatabase, private dialog: MdDialog){
     this.rackStream = this.db.list(this.rackPath);
     this.isUpstairs = true;
@@ -41,14 +44,15 @@ isUpstairs: boolean;
      
   }
 
-    showEventDialog(): void{
-    console.log("show dialog");
+    showRackRoom(): void{
+    console.log("show rack room info");
     const dialogConfig = new MdDialogConfig();
     dialogConfig.data = {firebasePath: `/rack-tags`};
-    this.dialog.open( CreateEventComponent, dialogConfig);
+    this.dialog.open( RackRoomInfoComponent, dialogConfig);
   }
 
   changeStairs(){
+    console.log(this.rackStream);
     this.isUpstairs = !this.isUpstairs
   }
 

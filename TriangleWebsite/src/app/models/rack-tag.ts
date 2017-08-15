@@ -1,14 +1,12 @@
 import { FirebaseFileSnapshot } from "./firebase-file-snapshot";
 
 export class RackTag extends FirebaseFileSnapshot {
-    public authorKey?: string;
-    public sleeperImage: string;
-    public sleeperName: string;
+    public owner: string;
+    public roomNumber: string;
 
     constructor(obj?:any){
         super(obj);
-        this.authorKey = obj && obj.authorKey || "";
-        this.sleeperImage = obj && obj.sleeperImage || "";
-        this.sleeperName = obj && obj.sleeperName || "";
+        this.owner = obj && obj.owner || "";
+        this.roomNumber= obj && obj.roomNumber || "";
     }
 }

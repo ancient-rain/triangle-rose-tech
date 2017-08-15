@@ -1,10 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as firebase from 'firebase';
-import { Router } from "@angular/router";
 import { MdDialogConfig, MdSnackBar, MdDialog } from "@angular/material";
-import { CreateEventComponent } from "../create-event/create-event.component";
-import { MyEvent } from "../models/event";
-import { AuthService } from "../services/auth.service";
+import { CreateEventComponent } from "../../create-event/create-event.component";
+import { MyEvent } from "../../models/event";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-calendar-event',
@@ -16,7 +15,7 @@ export class CalendarEventComponent implements OnInit {
   @Input() event: MyEvent; 
   isExpanded= false;
 
-  constructor(private snackBar : MdSnackBar, private dialog: MdDialog,  private router: Router, public authService: AuthService) { }
+  constructor(private snackBar : MdSnackBar, private dialog: MdDialog, public authService: AuthService){}
 
   ngOnInit() {
   }
