@@ -1,3 +1,10 @@
-<p>
-  rack-tag works!
-</p>
+<h1>{{isUpstairs ? 'DOWNSTAIRS' : 'UPSTAIRS'}}</h1>
+<md-grid-list [cols]="numColumns">
+  <md-grid-tile *ngFor="let rack of rackStream | async">
+    <app-rack>
+    </app-rack>
+  </md-grid-tile>
+</md-grid-list>
+   <md-slide-toggle ng-model="isUpstairs" aria-label="Switch 6" (change)="changeStairs()">
+   </md-slide-toggle>
+ 
