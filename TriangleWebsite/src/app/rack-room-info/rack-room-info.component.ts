@@ -12,6 +12,7 @@ interface RackDialogData{
   photoUrl: string;
   rackTime: string;
   isUpstairs:boolean;
+  alreadyHaveRack: boolean;
 }
 
 @Component({
@@ -39,7 +40,7 @@ export class RackRoomInfoComponent implements OnInit {
     this.isFree = this.dialogData.isFree;
     this.rackTime = this.dialogData.rackTime;
     this.isUpstairs = this.dialogData.isUpstairs;
-    this.alreadyHaveRack = (this.authService.rack != "");
+    this.alreadyHaveRack = this.dialogData.alreadyHaveRack;
     console.log(this.ownerInitials+ " "+this.ownerPhotoUrl+ " "+this.isFree+ " "+this.rackTime);
   }
 

@@ -37,8 +37,12 @@ export class RackComponent implements OnInit {
   openRackDialog(){
     console.log("show dialog");
     const dialogConfig = new MdDialogConfig();
+    const alreadyhaveRack: boolean = this.authService.rack !== '';
+
     dialogConfig.data = {firebasePath: this.firebasePath,isFree: this.isFree, isUpstairs: this.isUpstairs,
-                          photoUrl: this.myOwnerPhoto, initials: this.myOwnerInitials, rackTime: this.rackTime};
+                          photoUrl: this.myOwnerPhoto, initials: this.myOwnerInitials, rackTime: this.rackTime,
+                          alreadyHaveRack: alreadyhaveRack};
+
     this.dialog.open( RackRoomInfoComponent, dialogConfig);
   }
 
