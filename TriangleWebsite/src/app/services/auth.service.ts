@@ -88,12 +88,4 @@ export class AuthService {
     this.router.navigate(['/signin']);
     this.isSignedIn = false;
   }
-
-  changeImage(): void {
-    console.log('TODO: add dialog component to change image');
-  }
-
-  changeRack(): void {
-    console.log('TODO: add dialog component to change rack');
-  }
 }
