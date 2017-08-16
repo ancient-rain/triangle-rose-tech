@@ -39,7 +39,7 @@ export class LaundryComponent implements OnInit {
       (snapshot: firebase.database.DataSnapshot) => {
         this._dryerOne.imageUrl = snapshot.child('imageUrl').val();
         this._dryerOne.user = snapshot.child('user').val();
-        this._dryerOne.machine = 'washerTwo';
+        this._dryerOne.machine = 'dryerOne';
         this._dryerOne.isUsed = this._dryerOne.user !== '';
       });
 
@@ -47,7 +47,7 @@ export class LaundryComponent implements OnInit {
       (snapshot: firebase.database.DataSnapshot) => {
         this._dryerTwo.imageUrl = snapshot.child('imageUrl').val();
         this._dryerTwo.user = snapshot.child('user').val();
-        this._dryerTwo.machine = 'washerTwo';
+        this._dryerTwo.machine = 'dryerTwo';
         this._dryerTwo.isUsed = this._dryerTwo.user !== '';
       });
 
@@ -55,7 +55,7 @@ export class LaundryComponent implements OnInit {
       (snapshot: firebase.database.DataSnapshot) => {
         this._dryerThree.imageUrl = snapshot.child('imageUrl').val();
         this._dryerThree.user = snapshot.child('user').val();
-        this._dryerThree.machine = 'washerTwo';
+        this._dryerThree.machine = 'dryerThree';
         this._dryerThree.isUsed = this._dryerThree.user !== '';
       });
 
