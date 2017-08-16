@@ -1,6 +1,6 @@
 <md-sidenav-container>
   <md-sidenav #sidenav>
-    <md-toolbar color="primary">
+    <md-toolbar color="accent">
       <img class="menuLogo" src='/assets/logo.png'><img>
     </md-toolbar>
     <md-nav-list>
@@ -13,7 +13,7 @@
       <a md-list-item (click)="sidenav.toggle();authService.signOut();">Sign out</a>
     </md-nav-list>
   </md-sidenav>
-  <md-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <md-toolbar color="accent" fxLayout="row" fxLayoutAlign="space-between center">
         <img class="menuLogo" src='/assets/logo.png'><img>
     <button md-icon-button *ngIf="authService.isSignedInStream | async" (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>

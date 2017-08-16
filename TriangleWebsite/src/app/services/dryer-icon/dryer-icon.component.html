@@ -2,7 +2,7 @@
   <h2>{{ dryer.user }}</h2>
   <img (click)="remove()" *ngIf="dryer.isUsed;else showAdd" [src]="dryer.imageUrl" alt="Dryer Photo" md-card-image>
   <ng-template #showAdd>
-    <button (click)="add()" md-fab color="accent">
+    <button color="primary" (click)="add()" md-fab color="primary">
       <md-icon>add</md-icon>
     </button>
   </ng-template>
