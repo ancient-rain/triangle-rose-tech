@@ -45,6 +45,9 @@ export class RackTagComponent implements OnInit {
   changeStairs(){
     console.log(this.rackStream);
     this.isUpstairs = !this.isUpstairs
+    if(this.isUpstairs){
+      //DO STREAM FILTERING HERE
+    }
   }
 
 }

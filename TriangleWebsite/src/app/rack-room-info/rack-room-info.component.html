@@ -7,7 +7,7 @@
   </div>
     <p class="info" fxLayout fxLayoutAlign="center center">{{this.ownerInitials}}</p>
     <md-input-container>
-    <input mdInput required placeholder="Rack Time" name="rackTime" [(ngModel)]="this.rackTime">
+    <input *ngIf="this.authService.initials == this.ownerInitials" mdInput required placeholder="Rack Time" name="rackTime" [(ngModel)]="this.rackTime">
   </md-input-container>
 </md-card-content>
 <md-card-actions fxLayoutAlign="end center">
