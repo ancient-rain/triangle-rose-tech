@@ -48,6 +48,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { RackComponent } from './services/rack/rack.component';
 import { RackRoomInfoComponent } from './rack-room-info/rack-room-info.component';
+import { UploadProfilePicComponent } from './upload-profile-pic/upload-profile-pic.component';
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -90,10 +91,12 @@ export const MaterialModules = [
     ReversePipe,
     RackComponent,
     RackRoomInfoComponent,
+    UploadProfilePicComponent,
   ],
     entryComponents: [
     CreateEventComponent,
     RackRoomInfoComponent,
+    UploadProfilePicComponent
   ],
   imports: [
     BrowserModule,

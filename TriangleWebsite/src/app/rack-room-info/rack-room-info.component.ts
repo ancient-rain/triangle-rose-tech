@@ -64,6 +64,7 @@ export class RackRoomInfoComponent implements OnInit {
         rackTime: this.rackTime
     });
     firebase.database().ref('members/'+this.authService.userUid).child("rack").set(this.firebasePath);
+    this.dialogRef.close();
   }
   
   claim(){

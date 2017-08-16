@@ -11,7 +11,7 @@
   </md-input-container>
 </md-card-content>
 <md-card-actions fxLayoutAlign="end center">
-  <button *ngIf="this.authService.initials == this.ownerInitials" md-button (click)="changeRackTime()" type="button" style="background-color: #4ac59d">Change <md-icon>alarm</md-icon></button>
+  <button [disabled]="this.rackTime==''" *ngIf="this.authService.initials == this.ownerInitials" md-button (click)="changeRackTime()" type="button" style="background-color: #4ac59d">Change <md-icon>alarm</md-icon></button>
   <button *ngIf="this.authService.initials == this.ownerInitials" md-button (click)="remove()" type="button" style="background-color: #b52439">Remove</button>
   <button *ngIf="this.isFree" md-button (click)="claim()" type="button" style="background-color: #2495b5">Claim</button>
 </md-card-actions>
