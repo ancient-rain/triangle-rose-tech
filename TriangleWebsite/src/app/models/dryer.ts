@@ -1,4 +1,4 @@
-export class Washer {
+export class Dryer {
     public imageUrl: string;
     public user: string;
     public machine: string;

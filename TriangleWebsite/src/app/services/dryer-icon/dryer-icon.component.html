@@ -1,6 +1,6 @@
 <div class="latePlateIcon" fxLayout="column" fxLayoutAlign="center center">
-  <h2>{{ washer.user }}</h2>
-  <img (click)="remove()" *ngIf="washer.isUsed;else showAdd" [src]="washer.imageUrl" alt="Washer Photo" md-card-image>
+  <h2>{{ dryer.user }}</h2>
+  <img (click)="remove()" *ngIf="dryer.isUsed;else showAdd" [src]="dryer.imageUrl" alt="Dryer Photo" md-card-image>
   <ng-template #showAdd>
     <button (click)="add()" md-fab color="accent">
       <md-icon>add</md-icon>
