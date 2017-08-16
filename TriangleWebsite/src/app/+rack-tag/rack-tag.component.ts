@@ -40,17 +40,8 @@ export class RackTagComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-     
-  }
-
-    showRackRoom(): void{
-    console.log("show rack room info");
-    const dialogConfig = new MdDialogConfig();
-    dialogConfig.data = {firebasePath: `/rack-tags`};
-    this.dialog.open( RackRoomInfoComponent, dialogConfig);
-  }
-
+  ngOnInit() {}
+  
   changeStairs(){
     console.log(this.rackStream);
     this.isUpstairs = !this.isUpstairs

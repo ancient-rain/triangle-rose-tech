@@ -1,5 +1,4 @@
-<md-card>
-    <md-icon>local_hotel</md-icon>
-    <p>{{rack.owner}}</p>
-    <p>{{rack.rackTime}}</p>
-</md-card>
+<div [style.color]="getStyle()" (click)="openRackDialog()">
+    <md-icon class="material-icons md-48">local_hotel</md-icon>
+    <md-card-title>{{this.rack.$key}}</md-card-title>
+</div>
