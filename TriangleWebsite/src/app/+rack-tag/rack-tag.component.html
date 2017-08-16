@@ -1,4 +1,4 @@
-<h1>{{isUpstairs ? 'DOWNSTAIRS/LOBBY' : 'UPSTAIRS'}}</h1>
+<h1>{{isUpstairs ? 'UPSTAIRS': 'DOWNSTAIRS/LOBBY'}}</h1>
 <md-slide-toggle ng-model="isUpstairs" (change)="changeStairs()"> </md-slide-toggle>
 <md-grid-list [cols]="numColumns">
   <md-grid-tile *ngFor="let rack of rackStream | async">
