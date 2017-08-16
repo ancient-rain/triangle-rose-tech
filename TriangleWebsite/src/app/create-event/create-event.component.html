@@ -1,21 +1,21 @@
 <h1 md-dialog-title fxLayout fxLayoutAlign="center center">{{title}}</h1>
 <form #postEvent="ngForm" fxLayout="column" (ngSubmit)="onSubmit()">
-<md-dialog-content fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
-  <md-input-container>
-    <input mdInput required placeholder="Event Name" name="name" [(ngModel)]="formEvent.name">
-  </md-input-container>
-  <md-input-container>
-    <input mdInput required placeholder="Event Date" name="date" [(ngModel)]="formEvent.date">
-  </md-input-container>
-   <md-input-container>
-    <input mdInput required placeholder="Event Location" name="location" [(ngModel)]="formEvent.location">
-  </md-input-container>
-  <md-input-container>
-    <input mdInput required placeholder="Event Time" name="time" [(ngModel)]="formEvent.time">
-  </md-input-container>
-</md-dialog-content>
-<md-dialog-actions fxLayout fxLayoutAlign="center center">
+  <md-dialog-content fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
+    <md-input-container>
+      <input mdInput required placeholder="Event Name" name="name" [(ngModel)]="formEvent.name">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput required placeholder="Event Date" name="date" [(ngModel)]="formEvent.date">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput required placeholder="Event Location" name="location" [(ngModel)]="formEvent.location">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput required placeholder="Event Time" name="time" [(ngModel)]="formEvent.time">
+    </md-input-container>
+  </md-dialog-content>
+  <md-dialog-actions fxLayout fxLayoutAlign="center center">
     <button md-button type="button" md-dialog-close>Cancel</button>
-     <button md-button [disabled]="!postEvent.form.valid" type="submit">Save</button>
-</md-dialog-actions>
+    <button md-button [disabled]="!postEvent.form.valid" type="submit">Save</button>
+  </md-dialog-actions>
 </form>

@@ -9,11 +9,11 @@
   </md-card-title>
   <div [class.hidden]="!isExpanded" class="hidden-content">
     <md-card-content>
-      <div fxLayout fxLayoutAlign="center center">
-        {{event.name}}
-      </div>
+      <p>Name: {{ event.name }}</p>
+      <p>Location: {{ event.location }}</p>
+      <p>Time: {{ event.time }}</p>
     </md-card-content>
-    <md-card-actions fxLayoutAlign="end center">
+    <md-card-actions fxLayout fxLayoutAlign="end center">
       <button *ngIf=" this.authService._currentUserRole != 'Member'" md-button (click)="edit()" type="button" style="background-color: #2495b5">Edit</button>
       <button *ngIf=" this.authService._currentUserRole != 'Member'" md-button (click)="delete()" type="button" style="background-color: #b52439">Delete</button>
     </md-card-actions>

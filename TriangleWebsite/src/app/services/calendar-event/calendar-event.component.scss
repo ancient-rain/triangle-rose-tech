@@ -1,5 +1,5 @@
 .hidden-content{
-    height:105px;
+    height:140px;
     overflow: hidden;
     transition: all 300ms ease-in-out;
     
@@ -8,7 +8,6 @@
     height:0;
     
 }
-
 
 md-card{
     margin:10px;
@@ -23,14 +22,18 @@ md-card{
 
     md-card-content{
         margin: 0;
-        padding: 10px;
-        font-size: 24px;
+        padding: 10px 0;
+        font-size: 14px;
         color: white;
+
+        p {
+            margin: 4px 0;
+        }
     }
 
     md-card-actions{
-        margin-right: 80px;
-        padding-bottom: 30px;
+        margin: 0;
+
         button{
             color: white;
         }
