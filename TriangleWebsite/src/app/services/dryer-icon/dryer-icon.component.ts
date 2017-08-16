@@ -9,7 +9,7 @@ import * as firebase from 'firebase/app';
   templateUrl: './dryer-icon.component.html',
   styleUrls: ['./dryer-icon.component.scss']
 })
-export class DryerrIconComponent implements OnInit {
+export class DryerIconComponent implements OnInit {
   @Input() dryer: Dryer;
 
   constructor(public authService: AuthService) { }

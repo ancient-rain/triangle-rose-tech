@@ -9,11 +9,13 @@ img {
     margin-bottom: 40px;
 }
 
-.machine {
-    display: inline-block;
+.washers, .dryers {
+    margin-bottom: 40px;
 }
 
-h2 { 
+h1{
+    position: relative;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    font-weight: 400;
+    font-style: italic;
+    color: #ffe082;
 }

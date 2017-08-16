@@ -49,6 +49,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
 import { RackComponent } from './services/rack/rack.component';
 import { RackRoomInfoComponent } from './rack-room-info/rack-room-info.component';
 import { WasherIconComponent } from './services/washer-icon/washer-icon.component';
+import { DryerIconComponent } from './services/dryer-icon/dryer-icon.component';
 
 export const MaterialModules = [
   MdAutocompleteModule,
@@ -92,6 +93,7 @@ export const MaterialModules = [
     RackComponent,
     RackRoomInfoComponent,
     WasherIconComponent,
+    DryerIconComponent,
   ],
     entryComponents: [
     CreateEventComponent,

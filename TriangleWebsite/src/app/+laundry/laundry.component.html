@@ -1,22 +1,22 @@
 <div class="container">
   <div class="washers">
-    <h2>
+    <h1 fxLayout fxLayoutAlign="center center">
       WASHERS
-    </h2>
+    </h1>
     <md-grid-list [cols]="2" gutterSize="15px" rowHeight="250px">
       <md-grid-tile *ngFor="let washer of _washersStream">
         <app-washer-icon [washer]=washer></app-washer-icon>
       </md-grid-tile>
     </md-grid-list>
   </div>
-  <hr>
   <div class="dryers">
-    <h2>
+    <h1 fxLayout fxLayoutAlign="center center">
       DRYERS
-    </h2>
+    </h1>
     <md-grid-list [cols]="2" gutterSize="15px" rowHeight="250px">
-      <md-grid-tile>
-        <div class="machine" id="empty" fxLayout="column" fxLayoutAlign="center center"></div>
+      <md-grid-tile></md-grid-tile>
+      <md-grid-tile *ngFor="let dryer of _dryersStream">
+        <app-dryer-icon [dryer]=dryer></app-dryer-icon>
       </md-grid-tile>
     </md-grid-list>
   </div>
