@@ -24,7 +24,7 @@ export class RackTagComponent implements OnInit {
 
   constructor(public authService: AuthService, private db: AngularFireDatabase, private dialog: MdDialog){
     this.rackStream = this.db.list(this.downstairsRackPath);
-    this.isUpstairs = true;
+    this.isUpstairs = false;
   }
 
    get numColumns(): number{
