@@ -1,4 +1,10 @@
 <div class="latePlateIcon" fxLayout="column" fxLayoutAlign="center center">
-  <h2>{{ latePlate.initials }}</h2>
-  <img [src]="latePlate.photoUrl" alt="Late Plate Photo" md-card-image>
+  <h2>{{ washer.user }}</h2>
+  <img *ngIf="washer.isUsed;else showAdd" [src]="washer.photoUrl" alt="Washer Photo" md-card-image>
+  <ng-template #showAdd>
+    <button md-fab color="accent">
+      <md-icon>add</md-icon>
+    </button>
+  </ng-template>
+  <h2>{{ washer.time }}</h2>
 </div>

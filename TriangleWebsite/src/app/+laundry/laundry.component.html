@@ -4,22 +4,19 @@
       WASHERS
     </h2>
     <md-grid-list [cols]="2" gutterSize="15px" rowHeight="250px">
-      <md-grid-tile>
-
+      <md-grid-tile *ngFor="let washer of _washersStream">
+        <app-washer-icon [washer]=washer></app-washer-icon>
       </md-grid-tile>
     </md-grid-list>
   </div>
+  <hr>
   <div class="dryers">
     <h2>
       DRYERS
     </h2>
     <md-grid-list [cols]="2" gutterSize="15px" rowHeight="250px">
       <md-grid-tile>
-        <div class="machine" id="empty" fxLayout="column" fxLayoutAlign="center center">
-          <h2>INITIALS</h2>
-          <img [src]=https://orig11.deviantart.net/8813/f/2013/131/6/e/a_day_to_remember_homesick_by_beacdc-d4gcuhb.png alt="Washer One User" md-card-image>
-          <h2>TIME</h2>
-        </div>
+        <div class="machine" id="empty" fxLayout="column" fxLayoutAlign="center center"></div>
       </md-grid-tile>
     </md-grid-list>
   </div>

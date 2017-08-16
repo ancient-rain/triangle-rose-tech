@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LatePlate } from "../../models/late-plate";
+import { Washer } from "../../models/washer";
 
 @Component({
   selector: 'app-washer-icon',
@@ -7,7 +7,7 @@ import { LatePlate } from "../../models/late-plate";
   styleUrls: ['./washer-icon.component.scss']
 })
 export class WasherIconComponent implements OnInit {
-  @Input() latePlate: LatePlate;
+  @Input() washer: Washer;
 
   constructor() { }
 
