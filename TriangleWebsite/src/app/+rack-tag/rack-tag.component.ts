@@ -50,7 +50,7 @@ export class RackTagComponent implements OnInit {
       this.rackStream = this.db.list(this.upstairsRackPath)
     }
     else{
-      this.rackStream = this.db.list(this.upstairsRackPath)
+      this.rackStream = this.db.list(this.downstairsRackPath)
     }
   }
 
