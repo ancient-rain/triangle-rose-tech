@@ -2,7 +2,7 @@
 <md-slide-toggle ng-model="isUpstairs" (change)="changeStairs()"> </md-slide-toggle>
 <md-grid-list [cols]="numColumns">
   <md-grid-tile *ngFor="let rack of rackStream | async">
-    <app-rack fxFlex [rack]=rack>
+    <app-rack fxFlex [rack]=rack [isUpstairs]=isUpstairs>
     </app-rack>
   </md-grid-tile>
 </md-grid-list>

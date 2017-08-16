@@ -13,6 +13,7 @@ import * as firebase from 'firebase/app';
 })
 export class RackComponent implements OnInit {
   @Input() rack: RackTag;
+  @Input() isUpstairs: boolean;
   firebasePath: string;
   isFree: boolean;
   myOwnerInitials: string;
@@ -36,7 +37,7 @@ export class RackComponent implements OnInit {
   openRackDialog(){
     console.log("show dialog");
     const dialogConfig = new MdDialogConfig();
-    dialogConfig.data = {firebasePath: this.firebasePath,isFree: this.isFree,
+    dialogConfig.data = {firebasePath: this.firebasePath,isFree: this.isFree, isUpstairs: this.isUpstairs,
                           photoUrl: this.myOwnerPhoto, initials: this.myOwnerInitials, rackTime: this.rackTime};
     this.dialog.open( RackRoomInfoComponent, dialogConfig);
   }

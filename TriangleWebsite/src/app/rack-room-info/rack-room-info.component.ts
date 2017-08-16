@@ -11,6 +11,7 @@ interface RackDialogData{
   initials: string;
   photoUrl: string;
   rackTime: string;
+  isUpstairs:boolean;
 }
 
 @Component({
@@ -24,6 +25,7 @@ export class RackRoomInfoComponent implements OnInit {
   firebasePath: string;
   isFree: boolean;
   rackTime: string;
+  isUpstairs:boolean;
 
   constructor(private dialogRef: MdDialogRef<RackRoomInfoComponent>,
     @Inject(MD_DIALOG_DATA) private dialogData: RackDialogData, public authService: AuthService,
@@ -35,6 +37,7 @@ export class RackRoomInfoComponent implements OnInit {
     this.firebasePath = this.dialogData.firebasePath;
     this.isFree = this.dialogData.isFree;
     this.rackTime = this.dialogData.rackTime;
+    this.isUpstairs = this.dialogData.isUpstairs;
     console.log(this.ownerInitials+ " "+this.ownerPhotoUrl+ " "+this.isFree+ " "+this.rackTime);
   }
 
@@ -48,31 +51,53 @@ export class RackRoomInfoComponent implements OnInit {
   }
 
   remove(){
-      console.log("RACK TIME :"+ this.rackTime);
-      firebase.database().ref('rack-tags/' + this.firebasePath).set({
-        owner: "FREE",
-        rackTime: ""
-    });
+      if(this.isUpstairs){
+        firebase.database().ref('rack-tags/Upstairs/' + this.firebasePath).set({
+          owner: "FREE",
+          rackTime: ""
+        });
+      }
+      else{
+          firebase.database().ref('rack-tags/Downstairs/' + this.firebasePath).set({
+          owner: "FREE",
+          rackTime: ""
+        });
+      }
     firebase.database().ref('members/'+this.authService.userUid).child("rack").set("");
     this.dialogRef.close();
   }
 
   changeRackTime(){
-    console.log("RACK TIME :"+ this.rackTime);
-    firebase.database().ref('rack-tags/' + this.firebasePath).set({
-        owner: this.authService._currentUserUid,
-        rackTime: this.rackTime
-    });
+    if(this.isUpstairs){
+        firebase.database().ref('rack-tags/Upstairs/' + this.firebasePath).set({
+          owner: this.authService._currentUserUid,
+          rackTime: this.rackTime
+        });
+      }
+      else{
+        firebase.database().ref('rack-tags/Downstairs/' + this.firebasePath).set({
+          owner: this.authService._currentUserUid,
+          rackTime: this.rackTime
+        });
+
+      }
     firebase.database().ref('members/'+this.authService.userUid).child("rack").set(this.firebasePath);
     this.dialogRef.close();
   }
   
   claim(){
-    console.log("RACK TIME :"+ this.rackTime);
-     firebase.database().ref('rack-tags/' + this.firebasePath).set({
+    if(this.isUpstairs){
+      firebase.database().ref('rack-tags/Upstairs/' + this.firebasePath).set({
         owner: this.authService._currentUserUid,
         rackTime: this.rackTime
-    });
+     });
+    }
+    else{
+        firebase.database().ref('rack-tags/Downstairs/' + this.firebasePath).set({
+        owner: this.authService._currentUserUid,
+        rackTime: this.rackTime
+     });
+    }
     firebase.database().ref('members/'+this.authService.userUid).child("rack").set(this.firebasePath);
     this.dialogRef.close();
   }
