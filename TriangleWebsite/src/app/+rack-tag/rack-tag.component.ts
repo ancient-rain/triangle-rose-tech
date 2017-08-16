@@ -19,10 +19,11 @@ export class RackTagComponent implements OnInit {
   
   rackStream: FirebaseListObservable<RackTag[]>;
   isUpstairs: boolean;
-  readonly rackPath = 'rack-tags';
+  readonly upstairsRackPath = 'rack-tags/Upstairs';
+  readonly downstairsRackPath = 'rack-tags/Downstairs';
 
   constructor(public authService: AuthService, private db: AngularFireDatabase, private dialog: MdDialog){
-    this.rackStream = this.db.list(this.rackPath);
+    this.rackStream = this.db.list(this.downstairsRackPath);
     this.isUpstairs = true;
   }
 
@@ -46,7 +47,10 @@ export class RackTagComponent implements OnInit {
     console.log(this.rackStream);
     this.isUpstairs = !this.isUpstairs
     if(this.isUpstairs){
-      //DO STREAM FILTERING HERE
+      this.rackStream = this.db.list(this.upstairsRackPath)
+    }
+    else{
+      this.rackStream = this.db.list(this.upstairsRackPath)
     }
   }
 
