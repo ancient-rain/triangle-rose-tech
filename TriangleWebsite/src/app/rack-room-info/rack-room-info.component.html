@@ -1,3 +1,14 @@
-<p>
-  rack-room-info works!
-</p>
+<md-card-title [style.color]="getStyle()" fxLayoutAlign="none center">
+  <md-icon>local_hotel</md-icon>
+</md-card-title>
+<md-card-content>
+  <div fxLayout fxLayoutAlign="center center">
+     <img *ngIf="this.ownerPhotoUrl as url" [src]="url" alt="Featured Photo">
+  </div>
+    <p class="info" fxLayout fxLayoutAlign="center center">{{this.ownerInitials}}</p>
+    <p class="info" fxLayout fxLayoutAlign="center center">{{this.rackTime}}</p>
+</md-card-content>
+<md-card-actions fxLayoutAlign="end center">
+  <button *ngIf="this.authService.initials == this.ownerInitials" md-button (click)="remove()" type="button" style="background-color: #b52439">Remove</button>
+  <button *ngIf="this.isFree" md-button (click)="claim()" type="button" style="background-color: #2495b5">Claim</button>
+</md-card-actions>
