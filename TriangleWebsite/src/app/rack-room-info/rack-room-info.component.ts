@@ -3,6 +3,7 @@ import { LatePlate } from "../models/late-plate";
 import { MdDialogRef, MD_DIALOG_DATA } from "@angular/material";
 import { AuthService } from "../services/auth.service";
 import { AngularFireDatabase } from "angularfire2/database";
+import * as firebase from 'firebase/app';
 
 interface RackDialogData{
   firebasePath:string;
