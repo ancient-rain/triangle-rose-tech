@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 @Injectable()
 export class AuthService {
   isSignedInStream: Observable<boolean>;
+  isSignedIn: boolean = false;
   showLoginError: boolean;
   _currentUserUid: string;
   _currentUserInitials: string;
@@ -29,8 +30,10 @@ export class AuthService {
               this._currentUserRole = snapshot.child('role').val();
               this._currentUserRack = snapshot.child('rack').val();
               this.showLoginError = false;
+              this.isSignedIn = true;
             } else {
               this.showLoginError = true;
+              this.isSignedIn = false;
               this.afAuth.auth.signOut();
             }
           });
@@ -83,6 +86,7 @@ export class AuthService {
   signOut(): void {
     this.afAuth.auth.signOut();
     this.router.navigate(['/signin']);
+    this.isSignedIn = false;
   }
 
   changeImage(): void {

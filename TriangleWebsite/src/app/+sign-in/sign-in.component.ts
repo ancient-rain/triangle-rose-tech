@@ -10,7 +10,9 @@ import { AuthService } from "../services/auth.service";
 
 export class SignInComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+    console.log(this.authService.isSignedIn);
+   }
 
   ngOnInit() {
   }

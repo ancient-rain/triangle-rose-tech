@@ -1,6 +1,6 @@
 <div class="container" fxLayout="column" fxLayoutAlign="center center">
-  <md-card>
-    <md-card-title fxLayout="column" fxLayoutAlign="none none">
+  <md-card *ngIf="!authService.isSignedIn;else signOut">
+    <md-card-title fxLayout fxLayoutAlign="center center">
       <h2>Welcome</h2>
     </md-card-title>
     <md-card-content fxLayout="column" fxLayoutAlign="none center">
@@ -8,8 +8,7 @@
       <button md-raised-button (click)="authService.signIn()">
         Rose Hulman Sign In
       </button>
-      <br>
-      Only active members of the Triangle Rose-Tech Chapter will have access to this site.
+      <br> Only active members of the Triangle Rose-Tech Chapter will have access to this site.
     </md-card-content>
   </md-card>
   <br>
@@ -23,4 +22,17 @@
       <p>If you are a member and have issues logging in, talk to the current admin.</p>
     </md-card-content>
   </md-card>
+  <ng-template #signOut>
+    <md-card>
+      <md-card-title fxLayout fxLayoutAlign="center center">
+        <h2>Signed in as {{ authService.userUid }}</h2>
+      </md-card-title>
+      <md-card-content fxLayout="column" fxLayoutAlign="none center">
+        <img class="userPhoto" alt="Photo" [src]="authService.photoUrl" md-card-image>
+        <button md-raised-button (click)="authService.signOut()">
+          Sign Out
+        </button>
+      </md-card-content>
+    </md-card>
+  </ng-template>
 </div>
