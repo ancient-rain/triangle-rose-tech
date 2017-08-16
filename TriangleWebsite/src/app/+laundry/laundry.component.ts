@@ -14,19 +14,27 @@ export class LaundryComponent implements OnInit {
 
   private _washersStream: FirebaseListObservable<Washer[]>;
 
-  private _washerOne: Washer;
-  private _washerTwo: Washer;
+  private _washerOne: Washer = new Washer();
+  private _washerTwo: Washer = new Washer();
 
   constructor() {
-    var washerOnePath = this.washersPath + 'washerOne';
-    var washerTwoPath = this.washersPath + 'washerTwo';
+    var washerOnePath = this.washersPath + '/washerOne';
+    var washerTwoPath = this.washersPath + '/washerTwo';
 
     firebase.database().ref(washerOnePath).on('value',
       (snapshot: firebase.database.DataSnapshot) => {
         this._washerOne.imageUrl = snapshot.child('imageUrl').val();
-        this._washerOne.time = snapshot.child('imageUrl').val();
-        this._washerOne.user = snapshot.child('imageUrl').val();
+        this._washerOne.time = snapshot.child('time').val();
+        this._washerOne.user = snapshot.child('user').val();
         this._washerOne.machine = 'washerOne';
+      });
+
+    firebase.database().ref(washerTwoPath).on('value',
+      (snapshot: firebase.database.DataSnapshot) => {
+        this._washerTwo.imageUrl = snapshot.child('imageUrl').val();
+        this._washerTwo.time = snapshot.child('time').val();
+        this._washerTwo.user = snapshot.child('user').val();
+        this._washerTwo.machine = 'washerTwo';
       });
   }
 
