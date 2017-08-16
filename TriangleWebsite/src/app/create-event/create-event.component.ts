@@ -37,6 +37,8 @@ export class CreateEventComponent implements OnInit {
      const post = new MyEvent({
         date: this.formEvent.date,
         name: this.formEvent.name,
+        location: this.formEvent.location,
+        time: this.formEvent.time,
         authorKey: this.authService.userUid,
       });
      const firebaseRef = firebase.database().ref("events");

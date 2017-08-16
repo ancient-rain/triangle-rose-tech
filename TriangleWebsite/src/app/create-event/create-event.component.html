@@ -2,11 +2,16 @@
 <form #postEvent="ngForm" fxLayout="column" (ngSubmit)="onSubmit()">
 <md-dialog-content fxFlex="100" fxLayout="column" fxLayoutAlign="none">
   <md-input-container>
+    <input mdInput required placeholder="Event Name" name="name" [(ngModel)]="formEvent.name">
+  </md-input-container>
+  <md-input-container>
     <input mdInput required placeholder="Event Date" name="date" [(ngModel)]="formEvent.date">
   </md-input-container>
-
    <md-input-container>
-    <input mdInput required placeholder="Event Name" name="name" [(ngModel)]="formEvent.name">
+    <input mdInput required placeholder="Event Location" name="location" [(ngModel)]="formEvent.location">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput required placeholder="Event Time" name="time" [(ngModel)]="formEvent.time">
   </md-input-container>
 </md-dialog-content>
 <md-dialog-actions fxLayoutAlgin="end center">

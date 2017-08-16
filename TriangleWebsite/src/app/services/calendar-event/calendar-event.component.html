@@ -1,25 +1,21 @@
-
 <md-card>
-<md-card-title (click)="isExpanded=!isExpanded" fxLayoutAlign="none center">
-  {{event.date}}
-  <span fxFlex></span>
-  <button md-icon-button>
+  <md-card-title (click)="isExpanded=!isExpanded" fxLayoutAlign="none center">
+    {{event.date}}
+    <span fxFlex></span>
+    <button md-icon-button>
     <md-icon *ngIf="!isExpanded">turned_in</md-icon>
-
     <md-icon *ngIf="isExpanded">turned_in_not</md-icon>
   </button>
-</md-card-title>
-
-<div [class.hidden]="!isExpanded" class="hidden-content">
-<md-card-content>
-  <div fxLayout fxLayoutAlign="center center">
-     {{event.name}}
+  </md-card-title>
+  <div [class.hidden]="!isExpanded" class="hidden-content">
+    <md-card-content>
+      <div fxLayout fxLayoutAlign="center center">
+        {{event.name}}
+      </div>
+    </md-card-content>
+    <md-card-actions fxLayoutAlign="end center">
+      <button *ngIf=" this.authService._currentUserRole != 'Member'" md-button (click)="edit()" type="button" style="background-color: #2495b5">Edit</button>
+      <button *ngIf=" this.authService._currentUserRole != 'Member'" md-button (click)="delete()" type="button" style="background-color: #b52439">Delete</button>
+    </md-card-actions>
   </div>
-</md-card-content>
-
-<md-card-actions fxLayoutAlign="end center">
-  <button *ngIf=" this.authService._currentUserRole != 'Member'" md-button (click)="edit()" type="button" style="background-color: #2495b5">Edit</button>
-  <button *ngIf=" this.authService._currentUserRole != 'Member'" md-button (click)="delete()" type="button" style="background-color: #b52439">Delete</button>
-</md-card-actions>
-</div>
 </md-card>
