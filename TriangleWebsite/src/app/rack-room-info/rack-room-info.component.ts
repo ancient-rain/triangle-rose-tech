@@ -48,17 +48,32 @@ export class RackRoomInfoComponent implements OnInit {
   }
 
   remove(){
+      console.log("RACK TIME :"+ this.rackTime);
       firebase.database().ref('rack-tags/' + this.firebasePath).set({
         owner: "FREE",
         rackTime: ""
     });
+    firebase.database().ref('members/'+this.authService.userUid).child("rack").set("");
+    this.dialogRef.close();
+  }
+
+  changeRackTime(){
+    console.log("RACK TIME :"+ this.rackTime);
+    firebase.database().ref('rack-tags/' + this.firebasePath).set({
+        owner: this.authService._currentUserUid,
+        rackTime: this.rackTime
+    });
+    firebase.database().ref('members/'+this.authService.userUid).child("rack").set(this.firebasePath);
   }
   
   claim(){
+    console.log("RACK TIME :"+ this.rackTime);
      firebase.database().ref('rack-tags/' + this.firebasePath).set({
         owner: this.authService._currentUserUid,
-        rackTime: ""
+        rackTime: this.rackTime
     });
+    firebase.database().ref('members/'+this.authService.userUid).child("rack").set(this.firebasePath);
+    this.dialogRef.close();
   }
 
 }
