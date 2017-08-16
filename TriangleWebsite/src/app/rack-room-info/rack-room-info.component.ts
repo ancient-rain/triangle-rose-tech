@@ -26,6 +26,7 @@ export class RackRoomInfoComponent implements OnInit {
   isFree: boolean;
   rackTime: string;
   isUpstairs:boolean;
+  alreadyHaveRack:boolean;
 
   constructor(private dialogRef: MdDialogRef<RackRoomInfoComponent>,
     @Inject(MD_DIALOG_DATA) private dialogData: RackDialogData, public authService: AuthService,
@@ -38,6 +39,7 @@ export class RackRoomInfoComponent implements OnInit {
     this.isFree = this.dialogData.isFree;
     this.rackTime = this.dialogData.rackTime;
     this.isUpstairs = this.dialogData.isUpstairs;
+    this.alreadyHaveRack = (this.authService.rack != "");
     console.log(this.ownerInitials+ " "+this.ownerPhotoUrl+ " "+this.isFree+ " "+this.rackTime);
   }
 
@@ -63,6 +65,7 @@ export class RackRoomInfoComponent implements OnInit {
           rackTime: ""
         });
       }
+    this.alreadyHaveRack = false;
     firebase.database().ref('members/'+this.authService.userUid).child("rack").set("");
     this.dialogRef.close();
   }
@@ -98,6 +101,7 @@ export class RackRoomInfoComponent implements OnInit {
         rackTime: this.rackTime
      });
     }
+    this.alreadyHaveRack = true;
     firebase.database().ref('members/'+this.authService.userUid).child("rack").set(this.firebasePath);
     this.dialogRef.close();
   }
