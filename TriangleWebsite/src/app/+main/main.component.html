@@ -1,5 +1,6 @@
 <div class="container" fxLayout="column" fxLayoutAlign="center center">
-  <img (click)="authService.changeImage()" alt="Photo" [src]="authService.photoUrl" md-card-image>
+  <md-card-title>{{authService.uID}}</md-card-title>
+  <img (click)="uploadProfilePic()" alt="Photo" [src]="authService.photoUrl" md-card-image>
   <md-card>
     <md-card-content fxLayout="row" style="font-size:24px">
       <md-icon>face</md-icon>
