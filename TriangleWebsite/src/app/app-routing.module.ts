@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard] },
     { path: 'laundry', component: LaundryComponent, canActivate: [AuthGuard]},
     { path: 'lateplate', component: LatePlateComponent, canActivate: [AuthGuard] },
-    { path: 'racktag', component: RackTagComponent, canActivate: [AuthGuard] },
+    // { path: 'racktag', component: RackTagComponent, canActivate: [AuthGuard] },
     { path: '**', redirectTo: '' },
 ];
 
