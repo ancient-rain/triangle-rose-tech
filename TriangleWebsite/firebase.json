@@ -1,9 +1,6 @@
 {
   "hosting": {
     "public": "dist",
-    "ignore": [
-      "**/node_modules/**"
-    ],
     "rewrites": [
       {
         "source": "**",
