@@ -1,5 +1,5 @@
 <h1 md-dialog-title>Upload your Profile Pic</h1>
-<form #postForm="ngForm" fxLayout="column" (ngSubmit)="onSubmit()">
+<form #postForm="ngForm" fxLayout="column" (ngSubmit)="onUpload()">
 <md-dialog-content fxFlex="100" fxLayout="column" fxLayoutAlign="none">
 
    <md-input-container>
@@ -10,6 +10,6 @@
 </md-dialog-content>
 <md-dialog-actions fxLayoutAlgin="end center">
     <button style="background-color: #b52439" md-button type="button" md-dialog-close>Cancel</button>
-    <button style="background-color: #2495b5" md-button [disabled]="!this.photoUrl" (click)="onUpload()">Save</button>
+    <button style="background-color: #2495b5" md-button [disabled]="!this.photoUrl">Save</button>
 </md-dialog-actions>
 </form>
